@@ -18,7 +18,8 @@ public class ComputeTexture3D : ComputeTexture {
     }
 
     public override void CreateRenderTexture(){
-        //24 is the bits of the depth buffer not the resolution of the z-direction
+        //0 is the bits of the depth buffer, not the resolution of the z-direction
+        //We use 0 because Unity currently does not support depth buffers in 3D textures
         RenderTexture rt = new RenderTexture(squareResolution, squareResolution, 0, renderTextureFormat);
         rt.enableRandomWrite = true;
         rt.dimension = UnityEngine.Rendering.TextureDimension.Tex3D;
